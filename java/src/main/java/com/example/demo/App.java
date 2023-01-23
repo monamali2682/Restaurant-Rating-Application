@@ -38,6 +38,7 @@ public class App {
                 }
                 commandRegistry.invokeCommand(line);
             }
+            System.out.println();
 
         } catch (Exception e) {
             e.printStackTrace();

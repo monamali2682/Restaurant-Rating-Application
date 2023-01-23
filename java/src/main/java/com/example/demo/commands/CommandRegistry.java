@@ -17,18 +17,18 @@ public class CommandRegistry {
         commands.remove(commandKeyword);
     }
 
-    private ICommand get(String commandName){
+    private ICommand getCommand(String commandName){
         return commands.get(commandName);
     }
 
-    private List<String> parse(String input){
-        return Arrays.stream(input.split(" ")).collect(Collectors.toList());
+    private List<String> parse(String line){
+        return Arrays.stream(line.split(" ")).collect(Collectors.toList());
     }
 
 
-    public void invokeCommand(String input) {
-        List<String> tokens = parse(input);
-        ICommand command = get(tokens.get(0));
+    public void invokeCommand(String line) {
+        List<String> tokens = parse(line);
+        ICommand command = getCommand(tokens.get(0));
         if(command == null){
             // Handle Exception
             throw new RuntimeException("INVALID COMMAND 🛑");
